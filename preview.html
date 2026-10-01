@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>LegalEase - Document Preview</title>
+
+    <link rel="stylesheet"
+          href="C:\Users\Lenovo\OneDrive\Desktop\legalEase\static\css\style.css">
+
+</head>
+
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        ⚖️ LegalEase
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/dashboard">
+            Dashboard
+        </a>
+
+        <a href="/create-document">
+            Create New
+        </a>
+
+    </div>
+
+</nav>
+
+
+<div class="document-container">
+
+    <div class="document-header">
+
+        <h1>
+            Document Preview
+        </h1>
+
+        <p>
+            Review and edit your document before downloading.
+        </p>
+
+    </div>
+
+
+    <div
+        id="documentContent"
+        class="editable-document"
+        contenteditable="true"
+    >{{ generated_document }}</div>
+
+
+    <div class="form-actions">
+
+        <button
+            type="button"
+            class="generate-btn"
+            onclick="saveDocument()">
+
+            💾 Save Changes
+
+        </button>
+
+
+        <form
+            action="/download/pdf"
+            method="POST"
+            onsubmit="return updateDocument(this);">
+
+            <input
+                type="hidden"
+                name="document"
+                value="">
+
+            <button
+                type="submit"
+                class="generate-btn">
+
+                📄 PDF
+
+            </button>
+
+        </form>
+
+
+        <form
+            action="/download/docx"
+            method="POST"
+            onsubmit="return updateDocument(this);">
+
+            <input
+                type="hidden"
+                name="document"
+                value="">
+
+            <button
+                type="submit"
+                class="generate-btn">
+
+                📝 DOCX
+
+            </button>
+
+        </form>
+
+
+        <form
+            action="/download/txt"
+            method="POST"
+            onsubmit="return updateDocument(this);">
+
+            <input
+                type="hidden"
+                name="document"
+                value="">
+
+            <button
+                type="submit"
+                class="generate-btn">
+
+                📃 TXT
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script>
+
+function updateDocument(form) {
+
+    const content =
+        document.getElementById(
+            "documentContent"
+        ).innerText;
+
+    form.querySelector(
+        'input[name="document"]'
+    ).value = content;
+
+    return true;
+}
+
+
+function saveDocument() {
+
+    const content =
+        document.getElementById(
+            "documentContent"
+        ).innerText;
+
+    localStorage.setItem(
+        "legalEaseDocument",
+        content
+    );
+
+    alert(
+        "Document changes saved!"
+    );
+}
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>LegalEase - Create Document</title>
+
+    <link rel="stylesheet"
+          href="C:\Users\Lenovo\OneDrive\Desktop\legalEase\static\css\style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        ⚖️ LegalEase
+    </div>
+
+
+    <div class="nav-links">
+
+        <a href="C:\Users\Lenovo\OneDrive\Desktop\legalEase\templates\index.html">
+            Home
+        </a>
+
+        <a href="C:\Users\Lenovo\OneDrive\Desktop\legalEase\templates\dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="C:\Users\Lenovo\OneDrive\Desktop\legalEase\templates\login.html">
+            Logout
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- ================= PAGE ================= -->
+
+<div class="document-container">
+
+
+    <div class="document-header">
+
+        <h1>
+            Create Legal Document
+        </h1>
+
+        <p>
+            Select a document type and enter the required details.
+        </p>
+
+    </div>
+
+
+    <!-- ================= FORM ================= -->
+
+    <form
+       action="/generate-document" method="POST" class="document-form">
+
+
+        <!-- Document Type -->
+
+        <div class="form-group">
+
+            <label for="document_type">
+                Document Type
+            </label>
+
+            <select
+                id="document_type"
+                name="document_type"
+                required
+                onchange="showFields()">
+
+                <option value="">
+                    Select Document Type
+                </option>
+
+                <option value="Employment Contract">
+                    Employment Contract
+                </option>
+
+                <option value="NDA">
+                    Non-Disclosure Agreement (NDA)
+                </option>
+
+                <option value="Lease Agreement">
+                    Lease Agreement
+                </option>
+
+                <option value="Business Agreement">
+                    Business Agreement
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- ================= COMMON DETAILS ================= -->
+
+        <div class="form-section">
+
+            <h2>
+                👥 Party Information
+            </h2>
+
+
+            <div class="two-column">
+
+
+                <!-- Party 1 -->
+
+                <div class="form-group">
+
+                    <label>
+                        Party 1 / First Party
+                    </label>
+
+                    <input
+                        type="text"
+                        name="party1"
+                        placeholder="Enter first party name"
+                        required>
+
+                </div>
+
+
+                <!-- Party 2 -->
+
+                <div class="form-group">
+
+                    <label>
+                        Party 2 / Second Party
+                    </label>
+
+                    <input
+                        type="text"
+                        name="party2"
+                        placeholder="Enter second party name"
+                        required>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= BASIC DETAILS ================= -->
+
+        <div class="form-section">
+
+            <h2>
+                📅 Agreement Details
+            </h2>
+
+
+            <div class="two-column">
+
+
+                <!-- Effective Date -->
+
+                <div class="form-group">
+
+                    <label>
+                        Effective Date
+                    </label>
+
+                    <input
+                        type="date"
+                        name="effective_date"
+                        required>
+
+                </div>
+
+
+                <!-- Company -->
+
+                <div class="form-group">
+
+                    <label>
+                        Company / Organization
+                    </label>
+
+                    <input
+                        type="text"
+                        name="company"
+                        placeholder="Enter company name">
+
+                </div>
+
+
+            </div>
+
+
+            <div class="two-column">
+
+
+                <!-- Salary -->
+
+                <div class="form-group">
+
+                    <label>
+                        Salary / Payment
+                    </label>
+
+                    <input
+                        type="text"
+                        name="salary"
+                        placeholder="Example: ₹30,000 per month">
+
+                </div>
+
+
+                <!-- Duration -->
+
+                <div class="form-group">
+
+                    <label>
+                        Contract Duration
+                    </label>
+
+                    <input
+                        type="text"
+                        name="duration"
+                        placeholder="Example: 1 year">
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= ADDITIONAL TERMS ================= -->
+
+        <div class="form-section">
+
+            <h2>
+                📝 Additional Terms
+            </h2>
+
+
+            <div class="form-group">
+
+                <label>
+                    Additional Requirements
+                </label>
+
+                <textarea
+                    name="additional_terms"
+                    rows="7"
+                    placeholder="Enter any additional terms or requirements..."></textarea>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= NOTICE ================= -->
+
+        <div class="legal-notice">
+
+            <strong>⚠️ Important:</strong>
+
+            <p>
+                LegalEase generates document drafts based on the
+                information provided by the user. Review the document
+                carefully and consult a qualified legal professional
+                where appropriate.
+            </p>
+
+        </div>
+
+
+        <!-- ================= BUTTON ================= -->
+
+        <div class="form-actions">
+
+            <button
+                type="reset"
+                class="reset-btn">
+
+                Clear
+
+            </button>
+
+
+            <button
+                type="submit"
+                class="generate-btn">
+
+                🤖 Generate Document
+
+            </button>
+
+        </div>
+
+
+    </form>
+
+</div>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+function showFields() {
+
+    const documentType =
+        document.getElementById("document_type").value;
+
+    console.log(
+        "Selected document:",
+        documentType
+    );
+
+}
+
+</script>
+
+
+</body>
+
+</html>

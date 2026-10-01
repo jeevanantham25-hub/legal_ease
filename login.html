@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>LegalEase - Login</title>
+
+    <link rel="stylesheet"
+          href="C:\Users\Lenovo\OneDrive\Desktop\legalEase\static\css\style.css">
+
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            ⚖️ LegalEase
+        </div>
+
+        <div class="nav-links">
+
+            <a href="C:\Users\Lenovo\OneDrive\Desktop\legalEase\templates\index.html">
+                Home
+            </a>
+
+            <a href="C:\Users\Lenovo\OneDrive\Desktop\legalEase\templates\register.html">
+                Register
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- Login -->
+
+    <div class="auth-container">
+
+        <h1>Welcome Back</h1>
+
+        <p>
+            Login to your LegalEase account
+        </p>
+
+
+        <form action="/login" method="POST">
+
+            <!-- Email -->
+
+            <div class="form-group">
+
+                <label>Email</label>
+
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Password -->
+
+            <div class="form-group">
+
+                <label>Password</label>
+
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Enter your password"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Login -->
+
+            <button
+                type="submit"
+                class="generate-btn">
+
+                Login
+
+            </button>
+
+        </form>
+
+
+        <p class="auth-link">
+
+            Don't have an account?
+
+            <a href="C:\Users\Lenovo\OneDrive\Desktop\legalEase\templates\register.html">
+                Create Account
+            </a>
+
+        </p>
+
+    </div>
+
+</body>
+
+</html>
